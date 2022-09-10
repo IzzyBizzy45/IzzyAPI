@@ -1,7 +1,13 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 4545;
-const router =express.Router();
+const router = express.Router();
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
+
+//DB Connection
+mongoose.connect(process.env.DATABASE, () => console.log('Connected to Database'));
 
 app.use(express.json());
 app.use('/', router);
@@ -15,22 +21,10 @@ router.get('/', (req, res) => {
     res.sendFile(__dirname+'/homeAPI.html');
 });
 
-router.get('/hello', (req, res) => {
-    res.send({
-        text: 'Hello World!'
-    }).status(200)
-});
+//Import Routes
+const helloRoute = require('./routes/hello');
+const quotesRoute = require('./routes/quotes');
 
-router.post('/hello/:id', (req, res) => {
-    const { id } = req.params;
-    const { name } = req.body;
-
-    if (!name) {
-        res.status(418).send({message:'We need a name!'});
-    }
-
-    res.send ({
-        hello: `You've sent the name "${name}" with the ID of ${id}`
-    });
-
-});
+//Middlewares
+app.use('/api/hello', helloRoute);
+app.use('/api/quotes', quotesRoute);
