@@ -70,6 +70,7 @@ function animate(timeStamp) {
 
     requestAnimationFrame(animate);
 }
+window.console.log("Hi! \nYou've hit my custom API that doesn't really do much \nAll code for the API can be found over at https://github.com/izzybizzy45/izzyapi");
 animate(0);
 
 window.addEventListener('resize', function() {

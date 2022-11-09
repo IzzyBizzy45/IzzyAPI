@@ -24,7 +24,9 @@ router.get('/', (req, res) => {
 //Import Routes
 const helloRoute = require('./routes/hello');
 const quotesRoute = require('./routes/quotes');
+const cowboyRoute = require('./routes/cowboy');
 
 //Middlewares
 app.use('/api/hello', helloRoute);
 app.use('/api/quotes', quotesRoute);
+app.use('/api/cowboy', cowboyRoute);

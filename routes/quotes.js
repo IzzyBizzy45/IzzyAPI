@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Quote = require('../model/Quotes');
-const verify = require('./verify');
+const verify = require('../middleware/verify');
 
 router.get('/', async (req, res) => {
     const totalQuotes = (await Quote.where().countDocuments());
