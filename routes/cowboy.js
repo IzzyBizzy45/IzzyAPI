@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/ITPerson', (req, res) => {
-    const randomChance = Math.floor(Math.random()*100)
+    const randomChance = Math.floor(Math.random()*100);
     /* % of each response is the following
     10% to respond with a status of stupidshit
     20% to respond with a status of sleeping

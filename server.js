@@ -25,8 +25,10 @@ router.get('/', (req, res) => {
 const helloRoute = require('./routes/hello');
 const quotesRoute = require('./routes/quotes');
 const cowboyRoute = require('./routes/cowboy');
+const minecraftRoute = require('./routes/minecraft');
 
 //Middlewares
 app.use('/api/hello', helloRoute);
 app.use('/api/quotes', quotesRoute);
 app.use('/api/cowboy', cowboyRoute);
+app.use('/api/minecraft', minecraftRoute);
