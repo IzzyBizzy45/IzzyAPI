@@ -19,7 +19,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/newquote', verify, async (req, res) => {
-    const newID = (await Quote.where().count().countDocuments());
+    const newID = (await Quote.where().count().countDocuments()) + 1;
     console.log('new id is %d', newID); 
     const quote = new Quote({
         quote: req.body.quote,
