@@ -75,7 +75,7 @@ function decodePacket (buffer) {
         // Check if packet is long enough
         if (buffer.length < varint.encodingLength(packetLength) + packetLength) {
             return reject(new Error('Packet is not complete'));
-        }  
+        }
 
         // Decode packet id
         let packetId = varint.decode(buffer, varint.encodingLength(packetLength));
@@ -104,7 +104,7 @@ function decodeHandshakeResponse (packet) {
         let responseLength = varint.decode(packet.data, 0);
         let response = packet.data.slice(
             varint.encodingLength(responseLength),
-             varint.encodingLength(responseLength) + responseLength
+            varint.encodingLength(responseLength) + responseLength
         );
         packet.result = JSON.parse(response);
         resolve(packet);
