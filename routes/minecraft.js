@@ -13,6 +13,7 @@ router.get('/getminecraftserver', (req, res) => {
             res.status(500).send(err);
             return;
         }
+        console.log(`[Minecraft] Recieved Request to lookup '${address}:${port}'`)
         res.status(200).send(result);
     })
 });
